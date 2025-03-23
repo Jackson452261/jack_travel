@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Jack旅遊</title>
+    <meta name="description" content="Jack的專業攝影作品集，涵蓋風景、人像、 攝影。">
+     <meta name="keywords" content="Jack, 攝影, 攝影作品, 風景攝影,  攝影師">
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/icons/favicon.svg">
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="preloader__circles">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+        <!-- Header Start -->
+        <header class="header">
+            <div class="header__container">
+                <div class="header__body">
+                    <div class="header__logo logo">
+                        <a class="logo__link" href="index.html">
+                            <img src="https://place-hold.it/124x57/333/fff/Text&fontsize=16" alt="">
+                        </a>
+                    </div>
+                    <button class="header__burger" type="button" aria-label="Open menu">
+                        <img src="images/icons/burger.svg" alt="">
+                    </button>
+                    <nav class="header__menu menu">
+                        <button class="menu__close" type="button" aria-label="Close menu">
+                            <img src="images/icons/close-icon.svg" alt="">
+                        </button>
+                        <ul class="menu__list">
+                            <li class="menu__item">
+                                <a class="menu__link" href="index.html">Home</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="services.html">Services</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="classes.html">Classes</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link active" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
+        <!-- Main Start -->
+        <main class="main">
+
+            <!-- Intro Start -->
+            <div class="main__intro intro intro--contact">
+                <div class="intro__container">
+                    <nav class="main__breadcrumbs breadcrumbs">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link" href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link current">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div> 
+            <!-- Intro End -->
+
+            <!-- Contact Start -->
+            <section class="main__contact contact _section">
+                <div class="contact__container">
+                    <h1 class="contact__heading heading">Lets work together</h1>
+                    <div class="contact__body">
+                        <form id="contact-form" action="#">
+                            <!-- Hidden Required Fields -->
+                            <input type="hidden" name="project_name" value="Ron's photography">
+                            <input type="hidden" name="admin_email" value="info@example.com">
+                            <input type="hidden" name="form_subject" value="Contact form">
+                            <!-- END Hidden Required Fields -->
+                            <div class="form__item">
+                                <label class="visually-hidden" for="userName">Name</label>
+                                <input class="form__input" name="from_name" id="userName" type="text" placeholder="Name" required>
+                            </div>
+                            <div class="form__item">
+                                <label class="visually-hidden" for="userEmail">Email</label>
+                                <input class="form__input" name="from_email" id="userEmail" type="email" placeholder="Email" required>
+                            </div>
+                            <div class="form__item">
+                                <label class="visually-hidden" for="userPhone">Phone</label>
+                                <input class="form__input" name="from_phone" id="userPhone" type="tel" placeholder="Phone">
+                            </div>
+                            <div class="form__item">
+                                <label class="visually-hidden" for="userMessage">Message</label>
+                                <textarea class="form__textarea" name="message" id="userMessage" placeholder="Message..."></textarea>
+                            </div>
+                            <button class="form__button button submit-button" type="submit">Submit</button>
+                        </form>
+                        <div class="contact__info">
+                            <div class="contact__box">
+                                <h3 class="contact__title">Contact</h3>
+                                <ul class="contact__list">
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="#">3517 W. Gray St. Utica, Pennsylvania </a>
+                                    </li>
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="tel:316555-0116">(316) 555-0116</a>
+                                    </li>
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="mailto:info@example.com">info@example.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="contact__box">
+                                <h3 class="contact__title">Social links</h3>
+                                <ul class="contact__list">
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="#">Facebook</a>
+                                    </li>
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="#">Instagram</a>
+                                    </li>
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="#">Linkedin</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <!-- Contact End -->
+
+        </main>
+        <!-- Main End -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer__top">
+                    <div class="footer__info">
+                        <div class="footer__logo logo">
+                            <a class="logo__link" href="index.html">
+                                <img src="https://place-hold.it/124x57/333/fff/Text&fontsize=16" alt="">
+                            </a>
+                        </div>
+                        <div class="footer__text">
+                            <p>Lorem ipsum dolor sit amet consectetur. Ac eget neque duis aliquet. Arcu elementum est consectetur mi arcu iaculis.</p>
+                        </div>
+                    </div>
+                    <div class="footer__box">
+                        <h3 class="footer__title">Navigation</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a class="footer__link" href="index.html">Home</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="services.html">Services</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="classes.html">Classes</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box">
+                        <h3 class="footer__title">Contact</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">3517 W. Gray St. Utica, Pennsylvania</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="tel:3165550116">(316) 555-0116</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="mailto:info@example.com">info@example.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box">
+                        <h3 class="footer__title">Social Links</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Facebook</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Instagram</a>
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link" href="#">Linkedin</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__copyright">
+                        <p>&copy;2025 RonBayer. All rights reserved.</p>
+                    </div>
+                    <ul class="footer__support support">
+                        <li class="support__item">
+                            <a class="support__link" href="#">Terms and Condicions</a>
+                        </li>
+                        <li class="support__item">
+                            <a class="support__link" href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End -->
+
+    </div>
+    <!-- Wrapper End -->
+
+    <!-- JS Links -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
