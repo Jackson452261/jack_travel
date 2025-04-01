@@ -564,17 +564,20 @@ body.lock {
 }
 
 .hero__img {
-    width: 50%;
+    width: 100%;  /* 改為 100% 寬度 */
     height: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: -1;
+    overflow: hidden;  /* 防止圖片溢出 */
 }
 
 .hero__img img {
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
+    object-position: center center;  /* 確保圖片居中 */
 }
 
 .hero__img::after {
@@ -1808,4 +1811,87 @@ body.lock {
     font-size: 16px; /* 字體大小 */
     cursor: pointer; /* 滑鼠指標樣式 */
     transition: background-color 0.3s ease; /* 增加過渡效果 */
+}
+
+
+/*Form表單背面放背景照片*/
+.main__contact {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact__container {
+    position: relative;
+    z-index: 1;
+    /* 根據需要添加內邊距 */
+    padding: 50px 20px;
+}
+
+.contact__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.contact__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 添加半透明覆蓋層，使表單內容更易讀 */
+.contact__background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 調整透明度 */
+}
+
+/* 確保表單內容清晰可見 */
+.contact__heading {
+    color: #fff;
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact__body {
+    background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form__input, 
+.form__textarea {
+    background: rgba(74, 73, 73, 0.578);
+    border: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.form__button {
+    background: #3498db; /* 按鈕顏色 */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition:   0.3s;
+    border-radius: 30px;
+}
+
+.form__button:hover {
+    background: #2980b9;
+    transition: 1.3s;
 }
