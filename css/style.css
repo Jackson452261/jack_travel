@@ -1923,3 +1923,39 @@ body.lock {
     height: 26px;
     fill: white;
 }
+
+/*mailchimp電子報表單*/
+#mc_embed_signup {
+    max-width: 500px; /* 設定表單最大寬度 */
+    margin: 0 auto; /* 水平置中 */
+    text-align: center; /* 文字置中 */
+    padding: 20px; /* 可選：添加內邊距 */
+}
+
+/* 讓輸入欄位也置中 */
+#mc_embed_signup input[type="email"],
+#mc_embed_signup input[type="text"] {
+    width: 100%;
+    max-width: 300px; /* 限制輸入欄位寬度 */
+    margin: 10px auto; /* 置中輸入欄位 */
+    display: block; /* 讓輸入欄位獨佔一行 */
+}
+
+/* 按鈕置中 */
+#mc_embed_signup .button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background-color: #007cba;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 標籤文字置中 */
+#mc_embed_signup label {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+}
