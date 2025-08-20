@@ -1,0 +1,17 @@
+{
+  "name": "rons-portfolio_jack旅遊",
+  "version": "1.0.0",
+  "description": "Jack's Travel Photography Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "photography",
+    "portfolio",
+    "travel",
+    "motogp"
+  ],
+  "author": "Jack",
+  "license": "MIT"
+}
