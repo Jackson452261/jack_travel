@@ -7,9 +7,12 @@
     <meta name="description" content="Jack的專業攝影作品集，涵蓋風景、人像、 攝影。">
      <meta name="keywords" content="Jack, 攝影, 攝影作品, 風景攝影,  攝影師">
 
-    <!-- Google Fonts -->
+    <!-- Preconnect for faster resource loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    
+    <!-- Google Fonts with font-display optimization -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
@@ -45,15 +48,15 @@
                 <div class="header__body">
                     <div class="header__logo logo">
                         <a class="logo__link" href="index.html">
-                            <img src="/images/logo.png" alt="">
+                            <img src="/images/logo.png" alt="Jack旅遊 Logo" width="124" height="57" loading="eager">
                         </a>
                     </div>
                     <button class="header__burger" type="button" aria-label="Open menu">
-                        <img src="images/icons/burger.svg" alt="">
+                        <img src="images/icons/burger.svg" alt="Menu" width="24" height="24" loading="eager">
                     </button>
                     <nav class="header__menu menu">
                         <button class="menu__close" type="button" aria-label="Close menu">
-                            <img src="images/icons/close-icon.svg" alt="">
+                            <img src="images/icons/close-icon.svg" alt="Close menu" width="24" height="24" loading="eager">
                         </button>
                         <ul class="menu__list">
                             <li class="menu__item">
@@ -100,23 +103,23 @@
 
                     <div class="portfolio__body">
                         <a class="portfolio__item" data-cat="maylaysia" href="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5656_hgeucd.jpg">
-                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5656_hgeucd.jpg" alt="">
+                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/c_scale,w_400,q_auto,f_auto/v1736946772/samples/IMG_5656_hgeucd.jpg" alt="Malaysia MotoGP photography" width="400" height="300" loading="lazy">
                         </a>
 
                         <a class="portfolio__item" data-cat="maylaysia" href="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5647_jxfvel.jpg">
-                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5647_jxfvel.jpg" alt="">
+                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/c_scale,w_400,q_auto,f_auto/v1736946772/samples/IMG_5647_jxfvel.jpg" alt="Malaysia MotoGP photography" width="400" height="300" loading="lazy">
                         </a>
 
                         <a class="portfolio__item" data-cat="maylaysia" href="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5655_oqnrv1.jpg">
-                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5655_oqnrv1.jpg" alt="">
+                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/c_scale,w_400,q_auto,f_auto/v1736946772/samples/IMG_5655_oqnrv1.jpg" alt="Malaysia MotoGP photography" width="400" height="300" loading="lazy">
                         </a>
 
                         <a class="portfolio__item" data-cat="maylaysia" href="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5646_d3bccz.jpg">
-                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5646_d3bccz.jpg" alt="">
+                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/c_scale,w_400,q_auto,f_auto/v1736946772/samples/IMG_5646_d3bccz.jpg" alt="Malaysia MotoGP photography" width="400" height="300" loading="lazy">
                         </a>
 
                         <a class="portfolio__item" data-cat="maylaysia" href="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5654_qvyuhe.jpg">
-                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946772/samples/IMG_5654_qvyuhe.jpg" alt="">
+                            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/c_scale,w_400,q_auto,f_auto/v1736946772/samples/IMG_5654_qvyuhe.jpg" alt="Malaysia MotoGP photography" width="400" height="300" loading="lazy">
                         </a>
 
                         <a class="portfolio__item" data-cat="maylaysia" href="https://res.cloudinary.com/dtbj43yha/image/upload/v1736946771/samples/IMG_5645_cxyb1g.jpg">
@@ -316,6 +319,7 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.magnific-popup.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/image-optimizer.js"></script>
     <script>
         document.addEventListener('contextmenu', function(e) {
           e.preventDefault();

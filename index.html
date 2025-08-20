@@ -7,9 +7,12 @@
     <meta name="description" content="Jack的專業旅遊攝影作品集，分享精美風景攝影、人像攝影作品，記錄旅行中的時刻探索攝影的樂趣。">
     <meta name="keywords" content="Jack攝影,旅遊攝影,風景攝影,人像攝影,攝影作品集,旅行攝影">
 
-    <!-- Google Fonts -->
+    <!-- Preconnect for faster resource loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    
+    <!-- Google Fonts with font-display optimization -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
@@ -20,8 +23,8 @@
     <link rel="stylesheet" href="css/style.css">
 
 
-    <!--連接Mail.js的CDN-->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Preload critical hero image -->
+    <link rel="preload" as="image" href="images/sky.jpg" fetchpriority="high">
 
 
     <!--Google search console驗證-->
@@ -54,15 +57,15 @@
                 <div class="header__body">
                     <div class="header__logo logo">
                         <a class="logo__link" href="index.html">
-                            <img src="/images/icons/favicon.svg" alt="">
+                            <img src="/images/icons/favicon.svg" alt="Jack旅遊 Logo" width="32" height="32" loading="eager">
                         </a>
                     </div>
                     <button class="header__burger" type="button" aria-label="Open menu">
-                        <img src="images/icons/burger.svg" alt="">
+                        <img src="images/icons/burger.svg" alt="Menu" width="24" height="24" loading="eager">
                     </button>
                     <nav class="header__menu menu">
                         <button class="menu__close" type="button" aria-label="Close menu">
-                            <img src="images/icons/close-icon.svg" alt="">
+                            <img src="images/icons/close-icon.svg" alt="Close menu" width="24" height="24" loading="eager">
                         </button>
                         <ul class="menu__list">
                             <li class="menu__item">
@@ -88,7 +91,7 @@
                 <div class="hero__container">
                     <div class="hero__wrap">
                         <div class="hero__img">
-                            <img src="images/sky.jpg" alt="">
+                            <img src="images/sky.jpg" alt="Beautiful sky landscape" width="1200" height="800" loading="eager" fetchpriority="high">
                         </div>
                         <div class="hero__body">
                             <div class="hero__content">
@@ -230,7 +233,7 @@
 <section class="main__contact contact _section">
     <div class="contact__container">
         <div class="contact__background">
-            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/v1753798709/mountain_jdi9k6.jpg" alt="">
+            <img src="https://res.cloudinary.com/dtbj43yha/image/upload/c_scale,w_1200,q_auto,f_auto/v1753798709/mountain_jdi9k6.jpg" alt="Mountain landscape background" width="1200" height="800" loading="lazy">
         </div>
         <h1 class="contact__heading heading">聯絡資訊</h1>
         <a href="https://www.instagram.com/a411757" target="_blank" class="instagram-icon">
@@ -292,7 +295,7 @@
       <div class="optionalParent">
           <div class="clear foot">
               <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="訂閱">
-              <p style="margin: 0px auto;"><a href="http://eepurl.com/jhHp9w" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+              <p style="margin: 0px auto;"><a href="http://eepurl.com/jhHp9w" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" width="220" height="40" loading="lazy" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
           </div>
       </div>
   </div>
@@ -396,6 +399,7 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.magnific-popup.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         document.addEventListener('contextmenu', function(e) {
           e.preventDefault();
