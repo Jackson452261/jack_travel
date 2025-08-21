@@ -68,11 +68,16 @@ $(function () {
   });
 
   // Portfolio Popup
+  $(".portfolio__body a").on('click', function(e) {
+    e.preventDefault();
+  });
+  
   $(".portfolio__body").magnificPopup({
     delegate: "a",
     type: "image",
     closeOnContentClick: false,
-    closeBtnInside: false,
+    closeBtnInside: true,
+    mainClass: 'mfp-img-mobile',
     image: {
     verticalFit: true,
     cursor: null,
@@ -87,7 +92,35 @@ $(function () {
     opener: function (element) {
         return element.find("img");
       },
+    }
+  });
+
+  // Blog Post Image Lightbox
+  $(".blog-post__content a").on('click', function(e) {
+    e.preventDefault();
+  });
+  
+  $(".blog-post__content").magnificPopup({
+    delegate: "a",
+    type: "image",
+    closeOnContentClick: false,
+    closeBtnInside: true,
+    mainClass: 'mfp-img-mobile',
+    image: {
+      verticalFit: true,
+      cursor: null,
     },
+    gallery: {
+      enabled: true,
+    },
+    zoom: {
+      enabled: true,
+      duration: 300,
+      easing: 'ease-in',
+      opener: function (element) {
+        return element.find("img");
+      },
+    }
   });
 
   // Portfolio Filter
