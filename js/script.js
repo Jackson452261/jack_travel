@@ -113,6 +113,57 @@ $(function () {
     }
   });
 
+  // Blog Navigation
+  $('.blog__card').on('click', function(e) {
+    e.preventDefault();
+    
+    const blogId = $(this).data('blog-id');
+    let blogUrl = '';
+    
+    switch(blogId) {
+      case 1:
+        blogUrl = 'blog-post-1.html';
+        break;
+      case 2:
+        blogUrl = 'blog-post-2.html';
+        break;
+      case 3:
+        blogUrl = 'blog-post-3.html';
+        break;
+      default:
+        return;
+    }
+    
+    // Navigate to the blog post page
+    window.location.href = blogUrl;
+  });
+  
+  // Handle "Read More" link clicks within blog cards
+  $('.blog__link').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const blogCard = $(this).closest('.blog__card');
+    const blogId = blogCard.data('blog-id');
+    let blogUrl = '';
+    
+    switch(blogId) {
+      case 1:
+        blogUrl = 'blog-post-1.html';
+        break;
+      case 2:
+        blogUrl = 'blog-post-2.html';
+        break;
+      case 3:
+        blogUrl = 'blog-post-3.html';
+        break;
+      default:
+        return;
+    }
+    
+    window.location.href = blogUrl;
+  });
+
   // Questions Spoller
   $(".questions__label").on("click", function () {
     if ($(".questions__block").hasClass("single")) {
