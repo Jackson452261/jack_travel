@@ -162,6 +162,108 @@ $(function () {
 
  
 
+// Download Prevention Functions避免參觀者右鍵下載圖片
+function preventDownload() {
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  // Disable drag and drop for images
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable text selection
+  document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+    return false;
+  });
+
+  // Disable keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    // Disable F12 (Developer Tools)
+    if (e.keyCode === 123) {
+      e.preventDefault();
+      return false;
+    }
+    
+    // Disable Ctrl+Shift+I (Developer Tools)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+      e.preventDefault();
+      return false;
+    }
+    
+    // Disable Ctrl+Shift+C (Inspect Element)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+      e.preventDefault();
+      return false;
+    }
+    
+    // Disable Ctrl+U (View Source)
+    if (e.ctrlKey && e.keyCode === 85) {
+      e.preventDefault();
+      return false;
+    }
+    
+    // Disable Ctrl+S (Save Page)
+    if (e.ctrlKey && e.keyCode === 83) {
+      e.preventDefault();
+      return false;
+    }
+    
+    // Disable Ctrl+A (Select All)
+    if (e.ctrlKey && e.keyCode === 65) {
+      e.preventDefault();
+      return false;
+    }
+    
+    // Disable Ctrl+P (Print)
+    if (e.ctrlKey && e.keyCode === 80) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable image dragging specifically
+  const images = document.querySelectorAll('img');
+  images.forEach(function(img) {
+    img.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+      return false;
+    });
+    
+    // Add additional protection attributes
+    img.setAttribute('draggable', 'false');
+    img.setAttribute('ondragstart', 'return false;');
+    img.setAttribute('onselectstart', 'return false;');
+    img.setAttribute('oncontextmenu', 'return false;');
+  });
+
+  // Disable text selection on specific elements
+  const protectedElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, div');
+  protectedElements.forEach(function(element) {
+    element.style.webkitUserSelect = 'none';
+    element.style.mozUserSelect = 'none';
+    element.style.msUserSelect = 'none';
+    element.style.userSelect = 'none';
+  });
+
+  // Console warning message
+  console.clear();
+  console.log('%c⚠️ 內容受到保護', 'color: red; font-size: 20px; font-weight: bold;');
+  console.log('%c此網站的內容受到版權保護，禁止下載或複製。', 'color: red; font-size: 14px;');
+}
+
+// Initialize download prevention when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  preventDownload();
+});
+
  // 初始化 EmailJS
  emailjs.init("RvmnIgqG2GJBGiEl_"); // 替換為你的 EmailJS Public Key
 
