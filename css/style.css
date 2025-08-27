@@ -1987,7 +1987,19 @@ body.lock {
 
 /*IG的ICON背景顏色官方*/
 .instagram-icon {
-    background-color: #000;
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    border-radius: 12px;
+    padding: 8px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.instagram-icon:hover {
+    transform: scale(1.1);
+}
+
+.instagram-icon svg {
+    fill: white;
 }
 
 .blog__container {
