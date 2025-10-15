@@ -551,9 +551,9 @@ body.lock {
     font-family: "DM Serif Text", serif;
     font-size: 8rem;
     font-weight: 400;
-    color: #353b48;
+    color: #d1d2d4;
     position: relative;
-    left: -850px;
+    left: -50px;
 }
 
 .hero__title span {
@@ -562,7 +562,7 @@ body.lock {
     display: block;
     font-size: 2.5rem;
     font-weight: 300;
-    color: #353b48;
+ color: #d1d2d4;
 }
 
 .hero__img {
@@ -1685,6 +1685,28 @@ body.lock {
         font-size: 4rem;
     }
 
+    /* --- Hero --- */
+    .hero__title {
+        margin-bottom: 5rem;
+        font-size: 4rem;
+        left: 0px;
+        text-align: center;
+    }
+    
+    .hero__content {
+        max-width: 100%;
+        padding: 1rem 2rem;
+    }
+    
+    .hero__body {
+        align-items: center;
+    }
+    
+    .hero__img {
+        width: 100%;
+        overflow: hidden;
+    }
+
     /* --- Main --- */
     .main__services,
     .main__offer {
@@ -1693,20 +1715,6 @@ body.lock {
 
     /* --- Intro --- */
     .intro--contact,
-    .intro--classes,
-    .intro--services {
-        margin-bottom: 5rem;
-    }
-
-    /* --- Hero --- */
-    .hero__title {
-        margin-bottom: 5rem;
-        font-size: 6.4rem;
-    }
-
-    /* --- Works --- */
-    .works__body {
-        -ms-grid-columns: 1fr 3rem 1fr;
         grid-template-columns: repeat(2, 1fr);
         gap: 3rem;
     }
