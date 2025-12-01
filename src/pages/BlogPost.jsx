@@ -121,8 +121,10 @@ function BlogPost() {
           <div key={index} className="blog-post__video">
             <video 
               controls 
+              preload="metadata"
+              playsInline
               width="100%" 
-              style={{ maxWidth: '800px', height: '500px' }}
+              style={{ maxWidth: '800px', height: 'auto' }}
             >
               <source src={section.src} type="video/mp4" />
               您的瀏覽器不支援影片播放。
@@ -179,8 +181,10 @@ function BlogPost() {
                         <div className="blog-post__video">
                           <video 
                             controls 
+                            preload="metadata"
+                            playsInline
                             width="100%" 
-                            style={{ maxWidth: '800px', height: '500px' }}
+                            style={{ maxWidth: '800px', height: 'auto' }}
                           >
                             <source src={value.url} type="video/mp4" />
                             您的瀏覽器不支援影片播放。
