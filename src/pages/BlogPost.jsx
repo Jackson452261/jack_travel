@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { blogPostContent } from '../data/blogData'
+import { getBlogPostBySlug } from '../lib/sanityClient'
+import { PortableText } from '@portabletext/react'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
@@ -8,18 +10,63 @@ function BlogPost() {
   const { id } = useParams()
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  const [post, setPost] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [allImages, setAllImages] = useState([])
   
-  const post = blogPostContent[id]
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        // Try to fetch from Sanity first
+        console.log('Fetching post with slug/id:', id)
+        const sanityPost = await getBlogPostBySlug(id)
+        console.log('Sanity post result:', sanityPost)
+        if (sanityPost) {
+          setPost(sanityPost)
+        } else {
+          // Fallback to static data
+          console.log('Falling back to static data for id:', id)
+          setPost(blogPostContent[id])
+        }
+      } catch (error) {
+        console.log('Using static blog data:', error.message)
+        // Fallback to static data
+        setPost(blogPostContent[id])
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchPost()
+  }, [id])
   
-  // Collect all images for lightbox
+  // Collect all images for lightbox from both sections and content
   const images = useMemo(() => {
     if (!post) return []
-    return post.sections
-      .filter(section => section.type === 'image')
-      .map(section => ({
-        src: section.src,
-        alt: section.alt
-      }))
+    
+    let imgs = []
+    
+    // From sections (static data format)
+    if (post.sections) {
+      imgs = post.sections
+        .filter(section => section.type === 'image')
+        .map(section => ({
+          src: section.src,
+          alt: section.alt
+        }))
+    }
+    
+    // From content (Sanity Portable Text format)
+    if (post.content) {
+      const contentImages = post.content
+        .filter(block => block._type === 'image')
+        .map(block => ({
+          src: block.src || block.imageUrl,
+          alt: block.alt || ''
+        }))
+      imgs = [...imgs, ...contentImages]
+    }
+    
+    return imgs
   }, [post])
 
   const openLightbox = (imageSrc) => {
@@ -28,6 +75,16 @@ function BlogPost() {
       setLightboxIndex(index)
       setLightboxOpen(true)
     }
+  }
+
+  if (loading) {
+    return (
+      <article className="blog-post _section">
+        <div className="blog-post__container">
+          <h1 className="blog-post__title">載入中...</h1>
+        </div>
+      </article>
+    )
   }
 
   if (!post) {
@@ -92,7 +149,50 @@ function BlogPost() {
 
           <div className="blog-post__content">
             <div className="blog-post__text">
-              {post.sections.map((section, index) => renderSection(section, index))}
+              {/* Render Sanity Portable Text content */}
+              {post.content && (
+                <PortableText 
+                  value={post.content}
+                  components={{
+                    block: {
+                      h1: ({children}) => <h1>{children}</h1>,
+                      h2: ({children}) => <h2>{children}</h2>,
+                      h3: ({children}) => <h3>{children}</h3>,
+                      normal: ({children}) => <p>{children}</p>,
+                    },
+                    types: {
+                      image: ({value}) => {
+                        const imgSrc = value.src || value.imageUrl
+                        return (
+                          <div className="blog-post__image">
+                            <img 
+                              src={imgSrc} 
+                              alt={value.alt || ''} 
+                              loading="lazy"
+                              onClick={() => openLightbox(imgSrc)}
+                              style={{ cursor: 'pointer' }}
+                            />
+                          </div>
+                        )
+                      },
+                      videoEmbed: ({value}) => (
+                        <div className="blog-post__video">
+                          <video 
+                            controls 
+                            width="100%" 
+                            style={{ maxWidth: '800px', height: '500px' }}
+                          >
+                            <source src={value.url} type="video/mp4" />
+                            您的瀏覽器不支援影片播放。
+                          </video>
+                        </div>
+                      ),
+                    },
+                  }}
+                />
+              )}
+              {/* Render static sections data */}
+              {post.sections && post.sections.map((section, index) => renderSection(section, index))}
             </div>
 
             <div className="blog-post__navigation">
