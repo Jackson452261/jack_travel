@@ -52,7 +52,7 @@ function ContactForm() {
         </div>
         <h1 className="contact__heading heading">聯絡資訊</h1>
         <a 
-          href="https://www.instagram.com/a411757" 
+          href="https://www.instagram.com/" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="instagram-icon"
