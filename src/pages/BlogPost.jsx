@@ -177,20 +177,45 @@ function BlogPost() {
                           </div>
                         )
                       },
-                      videoEmbed: ({value}) => (
-                        <div className="blog-post__video">
-                          <video 
-                            controls 
-                            preload="metadata"
-                            playsInline
-                            width="100%" 
-                            style={{ maxWidth: '800px', height: 'auto' }}
-                          >
-                            <source src={value.url} type="video/mp4" />
-                            您的瀏覽器不支援影片播放。
-                          </video>
-                        </div>
-                      ),
+                      videoEmbed: ({value}) => {
+                        const url = value.url || '';
+                        // Check if it's a YouTube URL
+                        const youtubeMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+                        
+                        if (youtubeMatch) {
+                          const videoId = youtubeMatch[1];
+                          return (
+                            <div className="blog-post__video">
+                              <iframe
+                                width="100%"
+                                height="450"
+                                src={`https://www.youtube.com/embed/${videoId}`}
+                                title="YouTube video"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                style={{ maxWidth: '800px', borderRadius: '8px' }}
+                              />
+                            </div>
+                          );
+                        }
+                        
+                        // Regular video file
+                        return (
+                          <div className="blog-post__video">
+                            <video 
+                              controls 
+                              preload="metadata"
+                              playsInline
+                              width="100%" 
+                              style={{ maxWidth: '800px', height: 'auto' }}
+                            >
+                              <source src={url} type="video/mp4" />
+                              您的瀏覽器不支援影片播放。
+                            </video>
+                          </div>
+                        );
+                      },
                     },
                   }}
                 />
